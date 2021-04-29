@@ -16,7 +16,7 @@
 install.packages("disdat")
 library(disdat)
 
-setwd("C:/provadd/") # Windows
+#setwd("C:/nomecartella/") # Windows
 
 # Correlation matrix
 
