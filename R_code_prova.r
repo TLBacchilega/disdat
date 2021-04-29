@@ -29,6 +29,27 @@ library(tidyverse)
 # Inoltre: Warning message:
 # package ‘tidyverse’ was built under R version 4.0.5 
 
+remove.packages("pillar")
+install.packages("pillar")
+library(pillar)
+install.packages("tidyverse")
+library(tidyverse)
+# -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+# v ggplot2 3.3.3     v purrr   0.3.4
+# v tibble  3.1.0     v dplyr   1.0.5
+# v tidyr   1.1.3     v stringr 1.4.0
+# v readr   1.4.0     v forcats 0.5.1
+#-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+# x dplyr::dim_desc() masks pillar::dim_desc()
+# x dplyr::filter()   masks stats::filter()
+# x dplyr::lag()      masks stats::lag()
+#Warning messages:
+#1: package ‘tidyverse’ was built under R version 4.0.5 
+#2: package ‘ggplot2’ was built under R version 4.0.5 
+#3: package ‘readr’ was built under R version 4.0.5 
+#4: package ‘forcats’ was built under R version 4.0.5 
+
+
 
 library(disdat)
 library(sf)
