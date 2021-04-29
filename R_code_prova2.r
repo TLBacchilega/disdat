@@ -37,6 +37,8 @@ library(randomForest)
 #Warning message:
 #package ‘randomForest’ was built under R version 4.0.5 
 
+#setwd("C:/nomecartella/") # Windows
+
 
 
 
