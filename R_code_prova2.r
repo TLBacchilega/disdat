@@ -40,7 +40,7 @@ library(randomForest)
 #setwd("C:/nomecartella/") # Windows
 
 
-
+# da guardare! 
 
 # Prepare for modeling:
 
@@ -137,10 +137,6 @@ if(file.exists(outdir)){
 
 
 install.packages("dplyr")
-# Warning message:
-#In file.copy(savedcopy, lib, recursive = TRUE) :
-  #problem copying C:\Users\User\Documents\R\win-library\4.0\00LOCK\dplyr\libs\x64\dplyr.dll to C:\Users\User\Documents\R\win-library\4.0\dplyr\libs\x64\dplyr.dll: Permission denied
-
 library(dplyr)
 # Attaching package: ‘dplyr’
 
