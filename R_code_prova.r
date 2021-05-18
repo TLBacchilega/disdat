@@ -13,15 +13,15 @@
 #Raster cell size: 80 m
 
 
-install.packages("disdat")
+install.packages("disdat") # disdat-package: Data for species distribution modeling
 library(disdat)
 
 #setwd("C:/nomecartella/") # Windows
 
 # Correlation matrix
 
-awt <- disBg("AWT")
-head(awt)
+awt <- disBg("AWT") # disBg returns the background (bg) data for a region
+head(awt) # https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/head 
 
 #  siteid    spid        x       y occ group bc01 bc04 bc05      bc06 bc12 bc15
 # 1 100001 pseudo1 423335.8 7888328   0    NA 21.6 1.08 30.2 11.600000 1274  105
@@ -41,7 +41,7 @@ head(awt)
 
 # Density plots
 
-install.packages("GGally")
+install.packages("GGally") # GGally packages necessary to use ggpairs function. It will show infographic even better of pairs function
 library(GGally)
 # Registered S3 method overwritten by 'GGally':
 # method from   
@@ -51,13 +51,13 @@ library(GGally)
 
 # https://www.rdocumentation.org/packages/ggplot2/versions/3.3.3
 install.packages("ggplot2")
-library(ggplot2) # GGally: Extension to ggplot2
+library(ggplot2) # GGally: Extension to ggplot2 (R package 'ggplot2' is a plotting system based on the grammar of graphics)
 
 # create density plot for species presence-only vs background data
 # first prepare the species records in the right format for the tidyverse package:
 po <- disPo("AWT") # presence-only data
 bg <- disBg("AWT") # background data
-spdata <- rbind(po, bg)
+spdata <- rbind(po, bg) # combina due frame di dati per righe (rbind) quando hanno diversi set di colonne
 spdata$occ <- as.factor(spdata$occ)
 levels(spdata$occ) <- c("Landscape", "Species")
 levels(spdata$occ)
@@ -130,6 +130,9 @@ awt_min_dist <- awt_sf %>%
 meanDist
 # Errore: oggetto "meanDist" non trovato
 summary(awt_min_dist$meanDist)
+# Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# 1700    2815    4680    6901    7779   29011 
+
 
 # Mapping species data
 # This code shows how to map the species presence-only and the evaluation presence-absence data. For doing this we use tmap and mapview packages.
@@ -227,7 +230,7 @@ disMapBook
         #    plot(sf::st_geometry(poly))
         #    graphics::points(evaluation[abse, c("x", "y")], 
        #         pch = 16, col = grDevices::rgb(255, 0, 0, maxColorValue = 255, 
-                  alpha = 50))
+       #           alpha = 50))
           #  graphics::points(evaluation[pres, c("x", "y")], 
            #     pch = 16, col = grDevices::rgb(0, 0, 255, maxColorValue = 255, 
             #      alpha = 50))
@@ -248,7 +251,7 @@ disMapBook
 sf
 # Errore: oggetto "sf" non trovato
 
-mapview 
+mapview # Errore: oggetto "mapview" non trovato
 # standardGeneric for "mapview" defined from package "mapview"
 
 #function (...) 
@@ -266,7 +269,7 @@ library(mapview)
 library(sf)
 
 # get presence-absence data
-padata <- disPa(region = "NSW", group = "db") 
+padata <- disPa(region = "NSW", group = "db") # disPa returns the presence-absence (pa) data for a region and group
 # use disCRS for each region for its crs code (EPSG)
 disCRS("NSW", format = "EPSG")
 # [1] "EPSG:4326"
@@ -279,7 +282,7 @@ species <- "nsw14"
 # you can add: map.types = "Esri.WorldImagery"
 mapview(pa, zcol = species)
 # file:///C:/Users/User/AppData/Local/Temp/RtmpcR72OE/viewhtml36e8c7749f7/index.html  # non si vede mappa
-#https://cran.r-project.org/web/packages/disdat/vignettes/data_vis.html
+# https://cran.r-project.org/web/packages/disdat/vignettes/data_vis.html
 
 
 
