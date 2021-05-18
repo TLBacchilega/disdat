@@ -127,7 +127,7 @@ if(file.exists(outdir)){
     #out_file$group <- sp_presence$group[1]
     #out_file$prediction <- predict(mod, evaluation, type = "prob")[,"1"] # prediction for presences
     #write.csv(out_file, paste(outdir, "/", r, "_", s, "_rf", ".csv", sep=""), row.names = FALSE)
-    #print(n)
+    #print(n) # [1] 1
   #}
 #}
 
