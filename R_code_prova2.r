@@ -223,13 +223,27 @@ library(ROCR)
 
 install.packages("raster")
 library(raster)
+# Carico il pacchetto richiesto: sp
+
+#Attaching package: ‘raster’
+
+# The following object is masked from ‘package:dplyr’:
+
+#   select
+
+#The following object is masked from ‘package:tidyr’:
+
+#    extract
 
 
-# da guardare
+
+
 po <- disPo("NSW")
 nsw.raster <- raster("env_grids/nsw/mi.tif")
 
-table(po$group)
+table(po$group) # ba   db   nb   ot   ou   rt   ru   sr 
+                # 187 1513  268  339  167   64  110  675 
+
 target.groups <- list("bat"= "ba", "bird"= c("db", "nb"), "plant"= c("ot", "ou", "rt", "ru"), "reptile"= "sr") 
 tgb.data <- list()
 
